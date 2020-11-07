@@ -1,8 +1,9 @@
 package com.kea;
 
-public class Main {
+class Main {
 
     public static void main(String[] args) {
-	// write your code here
-    }
+    MenuSelection menuSelection = new MenuSelection();
+    menuSelection.menuSelection();
+        }
 }
