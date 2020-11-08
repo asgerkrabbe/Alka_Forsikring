@@ -1,7 +1,5 @@
 package com.kea;
 
-import jdk.swing.interop.SwingInterOpUtils;
-
 import java.util.Scanner;
 
 public class MenuSelection {
