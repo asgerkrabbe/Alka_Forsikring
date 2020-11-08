@@ -26,10 +26,6 @@ public class Job {
         return pilot;
     }
 
-    public double getPolitimand() {
-        return politimand;
-    }
-
     public double getSosuAssistent() {
         return sosuAssistent;
     }
@@ -38,8 +34,8 @@ public class Job {
         return studerende;
     }
 
-    public double getSygeplejerske() {
-        return sygeplejerske;
+    public double getUnderviser() {
+        return underviser;
     }
 
     private double brandmand = 0.95;
@@ -47,18 +43,17 @@ public class Job {
     private double driftsleder = 1;
     private double frisor = 0.98;
     private double laege = 1;
+    private double underviser = 0.96;
     private double pilot = 1;
-    private double politimand = 0.95;
     private double sosuAssistent = 0.90;
     private double studerende = 0.80;
-    private double sygeplejerske = 0.89;
 
-    private final String[] jobs = {"Brandmand", "Buschauffør", "Driftsleder", "Frisør", "Læge", "Pilot", "Politimand", "Sosu-Assistent", "Studerende", "Sygeplejerske"};
+    private final String[] jobs = {"Brandmand", "Buschauffør", "Driftsleder", "Frisør", "Læge", "Lærer", "Pilot", "Sosu-Assistent", "Studerende"};
 
     public void job() {
         Job job = new Job();
-        for (int i = 1; i <= 9; i++) {
-            System.out.println(i + ". " + job.jobs[i]);
+        for (int i = 0; i <= 8; i++) {
+            System.out.println(i+1 + ". " + job.jobs[i]);
         }
     }
 }
