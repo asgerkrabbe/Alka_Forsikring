@@ -2,13 +2,10 @@ package com.kea;
 
 class InsurancesData {
 
-    int indboGrund = 1000;
-    int elektronik = 150;
-    int briller = 200;
-    int ekstremSport = 150;
-    int tandskader = 100;
-}
-
-class Insurance {
-
+    private int indboGrundPakke = 1000;
+    private int elektronik = 150;
+    private int briller = 150;
+    private int ekstremSport = 100;
+    private int tandskader = 100;
+    private int cykelErstatning = 50;
 }

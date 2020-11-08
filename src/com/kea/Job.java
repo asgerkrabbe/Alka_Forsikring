@@ -1,58 +1,64 @@
 package com.kea;
 
 public class Job {
-    public String getBrandmand() {
+
+    public double getBrandmand() {
         return brandmand;
     }
 
-    public String getPolitimand() {
-        return politimand;
-    }
-
-    public String getSosuAssistent() {
-        return sosuAssistent;
-    }
-
-    public String getSygeplejerske() {
-        return sygeplejerske;
-    }
-
-    public String getDriftsleder() {
-        return driftsleder;
-    }
-
-    public String getBuschauffor() {
+    public double getBuschauffor() {
         return buschauffor;
     }
 
-    public String getPilot() {
-        return pilot;
+    public double getDriftsleder() {
+        return driftsleder;
     }
 
-    public String getFrisor() {
+    public double getFrisor() {
         return frisor;
     }
 
-    public String getLaege() {
+    public double getLaege() {
         return laege;
     }
 
-    private String brandmand;
-    private String buschauffor;
-    private String driftsleder;
-    private String frisor;
-    private String laege;
-    private String pilot;
-    private String politimand;
-    private String sosuAssistent;
-    private String sygeplejerske;
-
-    private final String[] jobs = {"Brandmand", "Buschauffør", "Driftsleder", "Frisør", "Læge", "Pilot", "Politimand", "Sosu-Assistent","Studerende", "Sygeplejerske"};
-
-    public void job(){
-    Job job = new Job();
-        for(int i = 1;i <=9;i++) {
-        System.out.println(i + ". " + job.jobs[i]);
+    public double getPilot() {
+        return pilot;
     }
+
+    public double getPolitimand() {
+        return politimand;
+    }
+
+    public double getSosuAssistent() {
+        return sosuAssistent;
+    }
+
+    public double getStuderende() {
+        return studerende;
+    }
+
+    public double getSygeplejerske() {
+        return sygeplejerske;
+    }
+
+    private double brandmand = 0.95;
+    private double buschauffor = 0.93;
+    private double driftsleder = 1;
+    private double frisor = 0.98;
+    private double laege = 1;
+    private double pilot = 1;
+    private double politimand = 0.95;
+    private double sosuAssistent = 0.90;
+    private double studerende = 0.80;
+    private double sygeplejerske = 0.89;
+
+    private final String[] jobs = {"Brandmand", "Buschauffør", "Driftsleder", "Frisør", "Læge", "Pilot", "Politimand", "Sosu-Assistent", "Studerende", "Sygeplejerske"};
+
+    public void job() {
+        Job job = new Job();
+        for (int i = 1; i <= 9; i++) {
+            System.out.println(i + ". " + job.jobs[i]);
+        }
     }
 }
