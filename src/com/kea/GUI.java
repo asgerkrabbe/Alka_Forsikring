@@ -12,8 +12,8 @@ public class GUI extends Frame implements ActionListener {
     ArrayList<Integer> price = new ArrayList<>();
 
     private Label header, elL, brillerL, ekstremL, tandL, cykelL;
-    private Button calculate, elY, elN, brillerY, brillerN, ekstremY, ekstremN, tandY, tandN, cykelY,cykelN;
-    private TextField test;
+    private Button calculate, elY, elN, brillerY, brillerN, ekstremY, ekstremN, tandY, tandN, cykelY, cykelN;
+    private TextField tf;
 
     public void insuranceFrame() {
         addWindowListener(new WindowAdapter() {
@@ -30,48 +30,77 @@ public class GUI extends Frame implements ActionListener {
         add(header);
 
         elL = new Label("Dækning ved skade på elektronik.");
-        elL.setBounds(20, 100, 250, 50);
-        add(elL);
-
+        elL.setBounds(20, 100, 250, 45);
         elY = new Button("Ja");
-        elY.setBounds(300, 110, 50, 25);
-        add(elY);
-
+        elY.setBounds(300, 100, 50, 45);
         elN = new Button("Nej");
-        elN.setBounds(350, 110, 50, 25);
-        add(elN);
+        elN.setBounds(350, 100, 50, 45);
         elY.addActionListener(this::coverageSelection);
         elN.addActionListener(this::coverageSelection);
-
+        add(elL);
+        add(elY);
+        add(elN);
 
         brillerL = new Label("Dækning ved skade på briller.");
-        brillerL.setBounds(20, 150, 250, 50);
-        add(brillerL);
-
+        brillerL.setBounds(20, 150, 250, 45);
         brillerY = new Button("Ja");
-        brillerY.setBounds(300, 160, 50, 25);
-        add(brillerY);
-
+        brillerY.setBounds(300, 150, 50, 45);
         brillerN = new Button("Nej");
-        brillerN.setBounds(350, 160, 50, 25);
-        add(brillerN);
+        brillerN.setBounds(350, 150, 50, 45);
         brillerY.addActionListener(this::coverageSelection);
         brillerN.addActionListener(this::coverageSelection);
-
-        calculate = new Button("Beregn");
-        calculate.setBounds(225, 400, 50, 25);
-        add(calculate);
-        calculate.addActionListener(this::coverageSelection);
+        add(brillerL);
+        add(brillerY);
+        add(brillerN);
 
 
         ekstremL = new Label("Dækning af ekstremsport");
-        ekstremL.setBounds(20, 200, 50, 25);
+        ekstremL.setBounds(20, 200, 250, 45);
+        ekstremY = new Button("Ja");
+        ekstremY.setBounds(300, 200, 50, 45);
+        ekstremN = new Button("Nej");
+        ekstremN.setBounds(350, 200, 50, 45);
+        ekstremY.addActionListener(this::coverageSelection);
+        ekstremN.addActionListener(this::coverageSelection);
         add(ekstremL);
+        add(ekstremY);
+        add(ekstremN);
 
-        test = new TextField();
-        test.setBounds(100, 400, 100, 25);
-        add(test);
+        tandL = new Label("Dækning ved tandskade.");
+        tandL.setBounds(20,250,250,50);
+        tandY = new Button("Ja");
+        tandY.setBounds(300,250,50,45);
+        tandN = new Button("Nej");
+        tandN.setBounds(350,250,50,45);
+        tandY.addActionListener(this::coverageSelection);
+        tandN.addActionListener(this::coverageSelection);
+        add(tandL);
+        add(tandY);
+        add(tandN);
 
+        cykelL = new Label("Dækning ved cykeltyvri.");
+        cykelL.setBounds(20,300,250,50);
+        cykelY = new Button("Ja");
+        cykelY.setBounds(300,300,50,45);
+        cykelN = new Button("Nej");
+        cykelN.setBounds(350,300,50,45);
+        cykelY.addActionListener(this::coverageSelection);
+        cykelN.addActionListener(this::coverageSelection);
+        add(cykelL);
+        add(cykelY);
+        add(cykelN);
+
+
+
+        calculate = new Button("Beregn");
+        calculate.setBounds(225, 400, 50, 20);
+        add(calculate);
+        calculate.addActionListener(this::coverageSelection);
+
+        tf = new TextField();
+        tf.setBounds(100, 400, 100, 20);
+        add(tf);
+        tf.setEditable(false);
     }
 
 
@@ -94,17 +123,44 @@ public class GUI extends Frame implements ActionListener {
             brillerY.setVisible(false);
             brillerN.setVisible(false);
         }
+
+        if (e.getSource() == ekstremY) {
+            ekstremY.setVisible(false);
+            ekstremN.setVisible(false);
+            price.add(insuranceData.getEkstremSport());
+        } else if (e.getSource() == ekstremN) {
+            ekstremY.setVisible(false);
+            ekstremN.setVisible(false);
+        }
+
+        if (e.getSource() == tandY) {
+            tandY.setVisible(false);
+            tandN.setVisible(false);
+            price.add(insuranceData.getTandskader());
+        } else if (e.getSource() == tandN) {
+            tandY.setVisible(false);
+            tandN.setVisible(false);
+        }
+
+        if (e.getSource() == cykelY) {
+            cykelY.setVisible(false);
+            cykelN.setVisible(false);
+            price.add(insuranceData.getCykelErstatning());
+        } else if (e.getSource() == cykelN) {
+            cykelY.setVisible(false);
+            cykelN.setVisible(false);
+        }
+
+
         int sum = 0;
         if (e.getSource() == calculate) {
 
             for (int i = 0; i < price.size(); i++) {
                 sum += price.get(i);
             }
-            test.setText(Integer.toString(sum));
+            tf.setText(Integer.toString(sum));
         }
     }
-
-
 
 
     @Override
