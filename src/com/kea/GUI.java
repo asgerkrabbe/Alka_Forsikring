@@ -5,8 +5,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
 
-public class GUI extends Frame implements ActionListener{
+public class GUI extends Frame implements ActionListener {
+    InsuranceData insuranceData = new InsuranceData();
+    ArrayList<int> price = new ArrayList<>();
 
     private Label header, elL, brillerL, l1;
     private Button calculate, elY, elN, brillerY, brillerN;
@@ -37,8 +40,9 @@ public class GUI extends Frame implements ActionListener{
         elN = new Button("Nej");
         elN.setBounds(350, 110, 50, 25);
         add(elN);
-
         elY.addActionListener(this::coverageSelection);
+        elN.addActionListener(this::coverageSelection);
+
 
         brillerL = new Label("Dækning ved skade på briller.");
         brillerL.setBounds(20, 150, 250, 50);
@@ -51,29 +55,46 @@ public class GUI extends Frame implements ActionListener{
         brillerN = new Button("Nej");
         brillerN.setBounds(350, 160, 50, 25);
         add(brillerN);
-
+        brillerN.addActionListener(this::coverageSelection);
+        brillerY.addActionListener(this::coverageSelection);
 
         calculate = new Button("Beregn");
         calculate.setBounds(225, 400, 50, 25);
         add(calculate);
+        calculate.addActionListener(this::coverageSelection);
 
 
         l1 = new Label("Test");
         l1.setBounds(400, 400, 50, 25);
         add(l1);
 
-        test = new TextField("");
-        test.setBounds(100,400,100,25);
+        test = new TextField();
+        test.setBounds(100, 400, 100, 25);
         add(test);
+
     }
 
 
     public void coverageSelection(ActionEvent e) {
 
         if (e.getSource() == elY) {
-            test.setText("success");
+            elY.setVisible(false);
+            elN.setVisible(false);
+            price.add(insuranceData.getElektronik());
+        } else if (e.getSource() == elN) {
+            elY.setVisible(false);
+            elN.setVisible(false);
+        }
+
+        if (e.getSource() == calculate) {
+            double sum = 0;
+            for (int i = 0; i < price.size(); i++) {
+                sum += price.get(i);
+            }
         }
     }
+
+
 
 
     @Override

@@ -21,7 +21,7 @@ public class InsuranceCalc {
 
             if (elektronik.equalsIgnoreCase("Y")) {
                 System.out.println("Dæknig af elektronik tilvalgt.");
-                price.add(insuranceData.getElektronik());
+                //price.add(insuranceData.getElektronik());
                 break;
             }
             if (elektronik.equalsIgnoreCase("N")) {
