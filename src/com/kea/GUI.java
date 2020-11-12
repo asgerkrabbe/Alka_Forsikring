@@ -8,10 +8,12 @@ import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 
 public class GUI extends Frame implements ActionListener {
+    Job job = new Job();
+    Choice c = new Choice();
     InsuranceData insuranceData = new InsuranceData();
     ArrayList<Integer> price = new ArrayList<>();
 
-    private Label header, elL, brillerL, ekstremL, tandL, cykelL;
+    private Label header, elL, brillerL, ekstremL, tandL, cykelL, lb1;
     private Button calculate, elY, elN, brillerY, brillerN, ekstremY, ekstremN, tandY, tandN, cykelY, cykelN;
     private TextField tf;
 
@@ -67,11 +69,11 @@ public class GUI extends Frame implements ActionListener {
         add(ekstremN);
 
         tandL = new Label("Dækning ved tandskade.");
-        tandL.setBounds(20,250,250,50);
+        tandL.setBounds(20, 250, 250, 50);
         tandY = new Button("Ja");
-        tandY.setBounds(300,250,50,45);
+        tandY.setBounds(300, 250, 50, 45);
         tandN = new Button("Nej");
-        tandN.setBounds(350,250,50,45);
+        tandN.setBounds(350, 250, 50, 45);
         tandY.addActionListener(this::coverageSelection);
         tandN.addActionListener(this::coverageSelection);
         add(tandL);
@@ -79,18 +81,16 @@ public class GUI extends Frame implements ActionListener {
         add(tandN);
 
         cykelL = new Label("Dækning ved cykeltyvri.");
-        cykelL.setBounds(20,300,250,50);
+        cykelL.setBounds(20, 300, 250, 50);
         cykelY = new Button("Ja");
-        cykelY.setBounds(300,300,50,45);
+        cykelY.setBounds(300, 300, 50, 45);
         cykelN = new Button("Nej");
-        cykelN.setBounds(350,300,50,45);
+        cykelN.setBounds(350, 300, 50, 45);
         cykelY.addActionListener(this::coverageSelection);
         cykelN.addActionListener(this::coverageSelection);
         add(cykelL);
         add(cykelY);
         add(cykelN);
-
-
 
         calculate = new Button("Beregn");
         calculate.setBounds(225, 400, 50, 20);
@@ -101,6 +101,18 @@ public class GUI extends Frame implements ActionListener {
         tf.setBounds(100, 400, 100, 20);
         add(tf);
         tf.setEditable(false);
+
+        lb1 = new Label("Vælg uddannelse");
+        lb1.setBounds(350,350,120,50);
+        add(lb1);
+
+        c.setBounds(350, 400, 120, 50);
+        add(c);
+
+        for (int i = 0; i < job.jobs.length; i++) {
+            c.add(job.jobs[i]);
+    }
+
     }
 
 

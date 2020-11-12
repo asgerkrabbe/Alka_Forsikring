@@ -1,5 +1,7 @@
 package com.kea;
 
+import java.util.ArrayList;
+
 public class Job {
 
     public double getBrandmand() {
@@ -48,12 +50,9 @@ public class Job {
     private double sosuAssistent = 0.90;
     private double studerende = 0.80;
 
-    private final String[] jobs = {"Brandmand", "Buschauffør", "Driftsleder", "Frisør", "Læge", "Lærer", "Pilot", "Sosu-Assistent", "Studerende"};
+    public final String[] jobs = {"Brandmand", "Buschauffør", "Driftsleder", "Frisør", "Læge", "Lærer", "Pilot", "Sosu-Assistent", "Studerende"};
 
-    public void job() {
-        Job job = new Job();
-        for (int i = 0; i <= 8; i++) {
-            System.out.println(i+1 + ". " + job.jobs[i]);
-        }
+    //ArrayList<String> jobs = new ArrayList<>();
+
+
     }
-}
