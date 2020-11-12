@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class GUI extends Frame implements ActionListener {
     InsuranceData insuranceData = new InsuranceData();
-    ArrayList<int> price = new ArrayList<>();
+    ArrayList<Integer> price = new ArrayList<>();
 
     private Label header, elL, brillerL, l1;
     private Button calculate, elY, elN, brillerY, brillerN;
@@ -86,11 +86,21 @@ public class GUI extends Frame implements ActionListener {
             elN.setVisible(false);
         }
 
+        if (e.getSource() == brillerY) {
+            brillerY.setVisible(false);
+            brillerN.setVisible(false);
+            price.add(insuranceData.getBriller());
+        } else if (e.getSource() == brillerN) {
+            elY.setVisible(false);
+            elN.setVisible(false);
+        }
+        double sum = 0;
         if (e.getSource() == calculate) {
-            double sum = 0;
+
             for (int i = 0; i < price.size(); i++) {
                 sum += price.get(i);
             }
+            test.setText(Double.toString(sum));
         }
     }
 
