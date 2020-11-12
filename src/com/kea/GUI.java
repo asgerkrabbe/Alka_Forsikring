@@ -6,10 +6,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-public class GUI extends Frame {
+public class GUI extends Frame implements ActionListener{
 
-    private Label header, elL, brillerL;
+    private Label header, elL, brillerL, l1;
     private Button calculate, elY, elN, brillerY, brillerN;
+    private TextField test;
 
     public void insuranceFrame() {
         addWindowListener(new WindowAdapter() {
@@ -37,6 +38,8 @@ public class GUI extends Frame {
         elN.setBounds(350, 110, 50, 25);
         add(elN);
 
+        elY.addActionListener(this::coverageSelection);
+
         brillerL = new Label("Dækning ved skade på briller.");
         brillerL.setBounds(20, 150, 250, 50);
         add(brillerL);
@@ -53,13 +56,28 @@ public class GUI extends Frame {
         calculate = new Button("Beregn");
         calculate.setBounds(225, 400, 50, 25);
         add(calculate);
+
+
+        l1 = new Label("Test");
+        l1.setBounds(400, 400, 50, 25);
+        add(l1);
+
+        test = new TextField("");
+        test.setBounds(100,400,100,25);
+        add(test);
     }
 
 
-    public void coverageSelection() {
+    public void coverageSelection(ActionEvent e) {
 
-
+        if (e.getSource() == elY) {
+            test.setText("success");
+        }
     }
 
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+    }
 }

@@ -1,5 +1,6 @@
 package com.kea;
 
+import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -7,6 +8,10 @@ public class InsuranceCalc {
     InsuranceData insuranceData = new InsuranceData();
     ArrayList<Integer> price = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
+
+
+
+
 
     public void setPrice() {
         price.add(insuranceData.getIndboGrundPakke());
