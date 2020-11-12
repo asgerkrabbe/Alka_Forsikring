@@ -11,6 +11,7 @@ class Main {
     GUI gui = new GUI();
 
     gui.insuranceFrame();
+
     //gui.coverageSelection();
 
     }
