@@ -11,8 +11,8 @@ public class GUI extends Frame implements ActionListener {
     InsuranceData insuranceData = new InsuranceData();
     ArrayList<Integer> price = new ArrayList<>();
 
-    private Label header, elL, brillerL, l1;
-    private Button calculate, elY, elN, brillerY, brillerN;
+    private Label header, elL, brillerL, ekstremL, tandL, cykelL;
+    private Button calculate, elY, elN, brillerY, brillerN, ekstremY, ekstremN, tandY, tandN, cykelY,cykelN;
     private TextField test;
 
     public void insuranceFrame() {
@@ -55,8 +55,8 @@ public class GUI extends Frame implements ActionListener {
         brillerN = new Button("Nej");
         brillerN.setBounds(350, 160, 50, 25);
         add(brillerN);
-        brillerN.addActionListener(this::coverageSelection);
         brillerY.addActionListener(this::coverageSelection);
+        brillerN.addActionListener(this::coverageSelection);
 
         calculate = new Button("Beregn");
         calculate.setBounds(225, 400, 50, 25);
@@ -64,9 +64,9 @@ public class GUI extends Frame implements ActionListener {
         calculate.addActionListener(this::coverageSelection);
 
 
-        l1 = new Label("Test");
-        l1.setBounds(400, 400, 50, 25);
-        add(l1);
+        ekstremL = new Label("Dækning af ekstremsport");
+        ekstremL.setBounds(20, 200, 50, 25);
+        add(ekstremL);
 
         test = new TextField();
         test.setBounds(100, 400, 100, 25);
@@ -91,16 +91,16 @@ public class GUI extends Frame implements ActionListener {
             brillerN.setVisible(false);
             price.add(insuranceData.getBriller());
         } else if (e.getSource() == brillerN) {
-            elY.setVisible(false);
-            elN.setVisible(false);
+            brillerY.setVisible(false);
+            brillerN.setVisible(false);
         }
-        double sum = 0;
+        int sum = 0;
         if (e.getSource() == calculate) {
 
             for (int i = 0; i < price.size(); i++) {
                 sum += price.get(i);
             }
-            test.setText(Double.toString(sum));
+            test.setText(Integer.toString(sum));
         }
     }
 
