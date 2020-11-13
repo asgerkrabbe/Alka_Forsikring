@@ -115,9 +115,15 @@ public class GUI extends Frame implements ActionListener {
 
     }
 
+    /**
+     * Every button press in the coverageSelection method will get the data from insuranceData class,
+     * and add it to an array for a final calculation.
+     * Lastly it will will run a loop and add every index together.
+     * I tried to add the job data in a choice section, but was unable to. So the dropdown menu does not
+     * have a function, other than looks.
+     */
 
     public void coverageSelection(ActionEvent e) {
-
         if (e.getSource() == elY) {
             elY.setVisible(false);
             elN.setVisible(false);
@@ -170,7 +176,7 @@ public class GUI extends Frame implements ActionListener {
             for (int i = 0; i < price.size(); i++) {
                 sum += price.get(i);
             }
-            tf.setText(Integer.toString(sum));
+            tf.setText((sum+insuranceData.getIndboGrundPakke())+",- per år");
         }
     }
 
